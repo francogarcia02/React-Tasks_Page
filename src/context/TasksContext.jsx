@@ -37,6 +37,10 @@ export const TasksProvider = ({children}) =>{
         setTasks(temporalTasks)
     }
 
+    const deleteAll = () => {
+        setTasks([])
+    }
+
     useEffect(() =>{
         localStorage.setItem("tasks", JSON.stringify(tasks))
     },[tasks])
@@ -48,7 +52,8 @@ export const TasksProvider = ({children}) =>{
     newTask,
     removeTask,
     errorExist,
-    finishTask
+    finishTask,
+    deleteAll
     }}>
         {children}
     </TasksContext.Provider>

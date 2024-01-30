@@ -28,7 +28,7 @@ const InputTask = () =>{
                   />
                 <button className="btn btn-primary">New</button>
             </div>
-            <Calendar3 className="position-absolute"/>
+            <Calendar3 size={32} className="position-absolute"/>
         </form>
 
     )

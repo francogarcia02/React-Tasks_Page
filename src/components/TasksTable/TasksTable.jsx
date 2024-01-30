@@ -1,14 +1,19 @@
 import { useContext } from 'react';
 import { TasksContext } from '../../context/TasksContext';
-import { Trash, CheckCircle } from 'react-bootstrap-icons';
+import { Trash, CheckCircle, XCircle } from 'react-bootstrap-icons';
 
 const TasksTable = () =>{
-    const {tasks, removeTask, finishTask} = useContext(TasksContext)
+    const {tasks, removeTask, finishTask, deleteAll} = useContext(TasksContext)
     console.log(tasks)
 
     if(tasks.length > 0){
         return(
             <div className="d-grid container w-75 mt-5 p-3 bg-dark rounded">
+                <div className="p-3 d-flex flex-wrap justify-content-between">
+                    <h3 className="text-light">Tareas</h3>
+                    <button className="btn text-light" onClick={() => deleteAll()}><Trash/></button>
+                </div>
+                <hr/>
                 {tasks.map(task => {
                     return (
                         <div className="d-flex flex-column">
@@ -26,7 +31,7 @@ const TasksTable = () =>{
                                     <h4 className="text-danger m-0 col">Pendiente</h4>
                                     }
                                     <button className="btn text-light" onClick={() => finishTask(task)}><CheckCircle/></button>
-                                    <button className="btn text-light" onClick={() => removeTask(task)}><Trash/></button>
+                                    <button className="btn text-light" onClick={() => removeTask(task)}><XCircle/></button>
                                 </div>
                             </div>
                             <hr className="text-light"/>
