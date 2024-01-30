@@ -6,7 +6,7 @@ html{
 .navbar{
   position: fixed;
   width: 100vw;
-  z-index: 2;
+  z-index: 10;
 }
 
 .g-5{
@@ -20,4 +20,37 @@ html{
 
 .space{
   height: 100rem;
+}
+
+.MuiInputBase-input.MuiInput-input {
+	text-align: center;
+	padding: 20px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+label {
+	width: 100%;
+	font-size: 14px;
+	color:#3f51b5;
+	font-weight: bold;
+}
+
+@media (min-width: 781px) {
+  .justify-content-between-lg {
+    justify-content: space-between !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .justify-content-center-sm {
+    justify-content: center !important;
+  }
+  .flex-sm-column{
+    flex-direction: column;
+  }
+}
+
+.text-bold{
+  font-weight: bold;
 }

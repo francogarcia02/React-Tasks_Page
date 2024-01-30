@@ -4,7 +4,6 @@ import { Trash, CheckCircle, XCircle } from 'react-bootstrap-icons';
 
 const TasksTable = () =>{
     const {tasks, removeTask, finishTask, deleteAll} = useContext(TasksContext)
-    console.log(tasks)
 
     if(tasks.length > 0){
         return(
@@ -16,11 +15,14 @@ const TasksTable = () =>{
                 <hr/>
                 {tasks.map(task => {
                     return (
-                        <div className="d-flex flex-column">
-                            <div className="d-flex flex-wrap justify-content-between align-items-center" key={task.id}>
-                                <div className="d-grid ps-2 g-5 align-items-center">
-                                    <div className="row">
-                                        <h4 className="text-light m-0 col">{task.name}</h4>
+                        <div className="d-flex flex-column" key={task.name}>
+                            <div className="d-flex flex-wrap justify-content-center justify-content-between-lg align-items-center" key={task.id}>
+                                <div className="d-flex flex-wrap ps-2 g-5 align-items-center justify-content-center justify-content-between-lg">
+                                    <h4 className="p-2 text-light m-0">{task.name}</h4>
+                                    <div className="ps-md-5 d-flex flex-wrap flex-sm-column justify-content-center align-items-center">
+                                        <p className="text-bold text-light m-0">{task.date}</p>
+                                        <p className="text-bold text-light m-0">at</p>
+                                        <p className="text-bold text-light m-0">{task.time}</p>
                                     </div>
                                 </div>
                                 <div className="d-flex flex-wrap align-items-center">
@@ -28,9 +30,11 @@ const TasksTable = () =>{
                                     ?
                                     <h4 className="text-success m-0 col">Terminada</h4>
                                     :
+                                    <>
                                     <h4 className="text-danger m-0 col">Pendiente</h4>
-                                    }
                                     <button className="btn text-light" onClick={() => finishTask(task)}><CheckCircle/></button>
+                                    </>
+                                    }
                                     <button className="btn text-light" onClick={() => removeTask(task)}><XCircle/></button>
                                 </div>
                             </div>

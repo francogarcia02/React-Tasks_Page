@@ -11,7 +11,7 @@ export const TasksProvider = ({children}) =>{
     const newTask = (task) =>{
         const nuevasTasks = [...tasks]
         const existeTask = nuevasTasks.find(item => item.name === task.name)
-        if(existeTask){
+        if(existeTask || task.name === ''){
             setErrorExist(true)
         }
         else{
